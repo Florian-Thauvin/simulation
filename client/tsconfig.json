@@ -47,6 +47,6 @@
      "allowUnreachableCode": true,                     /* Disable error reporting for unreachable code. */
   },
   "files": [
-    "\\\\"
+    "./src/index.ts"
   ]
 }

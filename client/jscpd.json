@@ -1,0 +1,11 @@
+{
+    "min-tokes": 1,
+    "min-lines": 1,
+    "max-lines": 5000,
+    "max-size": 5000,
+  
+    "threshold": 5,
+  
+    "output": "./duplication",
+    "reporters": ["html"]
+  }

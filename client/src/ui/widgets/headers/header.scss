@@ -1,0 +1,12 @@
+@use "../../config";
+
+.Header {
+  background-color: config.$mediumColor;
+  color: config.$lightStyle;
+  margin: 0px;
+  height: 5vh;
+  text-align: center;
+  font-size: 2em;
+  display: grid;
+  align-content: center;
+}

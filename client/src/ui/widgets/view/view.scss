@@ -1,0 +1,7 @@
+@use "../../config";
+
+.View {
+  border: 2px solid config.$darkStyle;
+  width: 70%;
+  height: 100%;
+}

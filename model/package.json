@@ -1,0 +1,43 @@
+{
+  "name": "simulation-model",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc --build",
+    "generate": "node ./build/main.js",
+    "clean": "npm run prettier & npm run lint:eslint & npx standard --fix & npm audit fix --force --dry-run & npm run test",
+    "complexity": "npx cognitive-complexity-ts-json ./src > complexity.json",
+    "duplication": "npx jscpd ./src -c ./jscpd.json",
+    "lint:eslint": "eslint . --fix --format html --output-file ./dist/reports/lint/eslint-report.html --ignore-path ./.gitignore",
+    "lint:eslint:json": "eslint . --fix --format json --output-file ./dist/reports/lint/eslint-report.json --ignore-path ./.gitignore",
+    "lint:stylelint": "stylelint \"**/*.{css,scss,sass}\" --fix --formatter json > ./dist/reports/lint/stylelint-report.json --ignore-path ./.gitignore",
+    "prettier": "prettier --write . --ignore-path ./.gitignore"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.11",
+    "@types/stylelint": "^9.10.1",
+    "@types/uuid": "^8.3.3",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-jest": "^24.7.0",
+    "eslint-plugin-jest-react": "^0.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-perf": "^3.3.0",
+    "eslint-plugin-typescript-sort-keys": "^2.1.0",
+    "eslint-webpack-plugin": "^2.6.0",
+    "jest": "^27.0.1",
+    "jscpd": "^3.4.2",
+    "prettier": "^2.5.1",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.5.2",
+    "uuid": "^8.3.2"
+  }
+}

@@ -6,3 +6,4 @@
 
 # logs
 *.log
+/client/webpack.log

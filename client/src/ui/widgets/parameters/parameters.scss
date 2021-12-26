@@ -1,0 +1,8 @@
+@use "../../config";
+
+.Parameters {
+  border: 2px solid config.$darkStyle;
+  width: 30%;
+  height: 100%;
+  background-color: config.$primaryLightColor;
+}

@@ -3,3 +3,6 @@
 
 # testing
 /client/coverage
+
+# logs
+*.log

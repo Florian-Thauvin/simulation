@@ -1,8 +1,0 @@
-26/12/2021, 10:35:44;INFO;[NONE];CLEAN                    ;Webpack log file cleaned...;
-26/12/2021, 10:35:44;INFO;[NONE];INITIALISATION           ;Webpack configuration run...;
-26/12/2021, 10:35:44;INFO;[NONE];CONFIGURATION            ;Load extra development configuration...;
-26/12/2021, 10:35:44;INFO;[NONE];CONFIGURATION_DEBUG      ;Add dirty/fast CSS bundle and import as style tag;
-26/12/2021, 10:35:44;INFO;[NONE];CONFIGURATION_DEBUG      ;Add source map in development mode;
-26/12/2021, 10:35:44;INFO;[NONE];DEV_SERVER               ;Define webpack server configuration;
-26/12/2021, 10:36:50;INFO;APPLY;PostBuildPlugin;RUN;
-26/12/2021, 10:36:50;WARN;APPLY;PostBuildPlugin;RUN;

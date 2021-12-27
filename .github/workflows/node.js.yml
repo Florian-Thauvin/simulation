@@ -11,13 +11,13 @@ on:
 
 jobs:
   build:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    name: Test on node ${{ matrix.node-version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}   
     continue-on-error: true
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x, 17.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:

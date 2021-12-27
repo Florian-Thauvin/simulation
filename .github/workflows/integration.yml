@@ -10,8 +10,8 @@ on:
     branches: [ master ]
 
 jobs:
-  analyse:
-    name: Test on node ${{ matrix.node-version }} and ${{ matrix.os }}
+  integration:
+    name: Full integration with ${{ matrix.node-version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}   
     continue-on-error: true
 
@@ -51,23 +51,23 @@ jobs:
         path: ${{github.workspace}}/client/build
 
     # Analyse
-    - name: ESlint analyze json
-      working-directory: ${{github.workspace}}/client
-      run: npm run lint:eslint:json || echo FAILED
+    # - name: ESlint analyze json
+    #   working-directory: ${{github.workspace}}/client
+    #   run: npm run lint:eslint:json || echo FAILED
 
-    - name: ESlint analyze html
-      working-directory: ${{github.workspace}}/client
-      run: npm run lint:eslint || echo FAILED
+    # - name: ESlint analyze html
+    #   working-directory: ${{github.workspace}}/client
+    #   run: npm run lint:eslint || echo FAILED
 
-    - name: Stylelint analyze
-      working-directory: ${{github.workspace}}/client
-      run: npm run lint:stylelint
+    # - name: Stylelint analyze
+    #   working-directory: ${{github.workspace}}/client
+    #   run: npm run lint:stylelint
           
-    - name: Archive Analyses reports
-      uses: actions/upload-artifact@v2
-      with:
-        name: IHM-Hangman-Game-Analyses-report
-        path: ${{github.workspace}}/client/dist
+    # - name: Archive Analyses reports
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: IHM-Hangman-Game-Analyses-report
+    #     path: ${{github.workspace}}/client/dist
 
     # Sonar
     - name: Setup sonarqube

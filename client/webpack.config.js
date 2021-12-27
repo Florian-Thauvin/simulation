@@ -271,7 +271,7 @@ module.exports = (env, args) => {
           filename: "[name].css",
           chunkFilename: "[id].css"
         }
-        //new PostBuildPlugin()
+        // new PostBuildPlugin()
       )
     );
   }

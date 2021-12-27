@@ -29,9 +29,5 @@ jobs:
         cache: 'npm'
     - name: Install dependency
       run: npm ci
-      with:
-        path: ${{github.workspace}}/client
     - name: Build
       run: npm run build
-      with:
-        path: ${{github.workspace}}/client

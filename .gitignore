@@ -1,9 +1,12 @@
 # dependencies
-/client/node_modules
+/**/node_modules
+
+# build
+/**/build
 
 # testing
-/client/coverage
+/**/coverage
 
 # logs
 *.log
-/client/webpack.log
+/**/webpack.log

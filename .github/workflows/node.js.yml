@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        path: ${{github.workspace}}/client
     - name: Install dependency
       run: npm install
       working-directory: ${{github.workspace}}/client

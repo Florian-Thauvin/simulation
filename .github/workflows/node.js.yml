@@ -22,8 +22,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
+      env:
+        workspace: ${{github.workspace}}/client
+      uses: actions/setup-node@v2      
+      with:        
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'npm'        
+    - name: Install dependency
+      run: npm install
+      working-directory: ${{github.workspace}}/client
+    - name: Build
+      run: npm run build
+      working-directory: ${{github.workspace}}/client
 

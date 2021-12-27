@@ -11,23 +11,24 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }     
 
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
-        path: ${{github.workspace}}/client
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dependency
-      run: npm ci
+      run: npm install
+      working-directory: ${{github.workspace}}/client
     - name: Build
       run: npm run build
+      working-directory: ${{github.workspace}}/client

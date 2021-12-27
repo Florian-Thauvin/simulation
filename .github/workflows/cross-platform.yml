@@ -1,0 +1,39 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Cross-Platforms
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  crossplatform:
+    name: Test on node ${{ matrix.node-version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}   
+    continue-on-error: true
+
+    strategy:
+      matrix:
+        node-version: [16.x, 17.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    # Initialize
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2      
+      with:        
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'        
+        cache-dependency-path: client/package.json
+
+    # Build
+    - name: Install dependency
+      run: npm ci
+      working-directory: ${{github.workspace}}/client
+    - name: Build
+      run: npm run build
+      working-directory: ${{github.workspace}}/client

@@ -20,13 +20,18 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - dir: client
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
+        path: ${{github.workspace}}/client
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm clean
-    - run: npm run build --if-present
+    - name: Install dependency
+      run: npm ci
+      with:
+        path: ${{github.workspace}}/client
+    - name: Build
+      run: npm run build
+      with:
+        path: ${{github.workspace}}/client

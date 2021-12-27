@@ -28,7 +28,7 @@ jobs:
         cache: 'npm'        
         cache-dependency-path: client/package.json
     - name: Install dependency
-      run: npm install
+      run: npm ci
       working-directory: ${{github.workspace}}/client
     - name: Build
       run: npm run build

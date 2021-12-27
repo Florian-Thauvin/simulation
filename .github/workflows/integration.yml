@@ -21,10 +21,10 @@ jobs:
         language: [ 'javascript' ]
         node-version: [16.x, 17.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
-      permissions:
-        actions: read
-        contents: read
-        security-events: write
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
     steps:
     # Initialize

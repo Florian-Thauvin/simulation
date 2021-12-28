@@ -35,6 +35,9 @@ jobs:
         cache: 'npm'        
         cache-dependency-path: client/package.json
 
+    - name: Create reports directory
+      run: mkdir ${{github.workspace}}/client/dist/reports; 
+
     # Build    
     - name: Dependency audit
       run: npm audit > dist/reports/dependency-audit.txt

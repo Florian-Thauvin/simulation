@@ -59,11 +59,13 @@ jobs:
         json: true
 
     - name: Es lint            
+      continue-on-error: true
       run: npm run lint:eslint || echo "Ended with errors"
       working-directory: ${{github.workspace}}/client
         
     - name: Style lint
-      run: npm run lint:stylelint
+      continue-on-error: true
+      run: npm run lint:stylelint || echo "Ended with errors"
       working-directory: ${{github.workspace}}/client
 
     - name: Archive Analyses reports

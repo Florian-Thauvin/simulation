@@ -59,13 +59,8 @@ jobs:
         json: true
 
     - name: Es lint            
-      #run: npm run lint:eslint
-      #working-directory: ${{github.workspace}}/client
-      uses: mrdivyansh/eslint-action@v1.0.7
-      with:
-        eslint-rc: ./client/eslint.config.js
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        execute-on-files: ./client/src
+      run: npm run lint:eslint
+      working-directory: ${{github.workspace}}/client
         
     - name: Style lint
       run: npm run lint:stylelint

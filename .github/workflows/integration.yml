@@ -37,7 +37,7 @@ jobs:
 
     # Build    
     - name: Dependency audit
-      run: npx standard --fix && npm audit fix --force --dry-run
+      run: npm audit > dist/reports/dependency-audit.txt
       working-directory: ${{github.workspace}}/client
     
     - name: Install dependency

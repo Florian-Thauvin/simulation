@@ -12,8 +12,7 @@ on:
 jobs:
   integration:
     name: Full integration with ${{ matrix.node-version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}   
-    continue-on-error: true
+    runs-on: ${{ matrix.os }}  
 
     strategy:
       fail-fast: false
@@ -36,10 +35,33 @@ jobs:
         cache: 'npm'        
         cache-dependency-path: client/package.json
 
-    # Build
+    # Build    
+    - name: Dependency audit
+      run: npx standard --fix && npm audit fix --force --dry-run
+      working-directory: ${{github.workspace}}/client
+    
     - name: Install dependency
       run: npm ci
       working-directory: ${{github.workspace}}/client
+
+    - name: Prettier
+      run: npm run prettier
+      working-directory: ${{github.workspace}}/client
+    
+    - name: Es lint
+      run: npm run lint:eslint && npm run lint:stylelint
+      working-directory: ${{github.workspace}}/client
+
+    - name: Style lint
+      run: npm run lint:stylelint
+      working-directory: ${{github.workspace}}/client
+
+    - name: Archive Analyses reports
+       uses: actions/upload-artifact@v2
+       with:
+        name: Simulation-Analyses
+        path: ${{github.workspace}}/client/dist/reports
+    
     - name: Build
       run: npm run build
       working-directory: ${{github.workspace}}/client
@@ -47,27 +69,8 @@ jobs:
     - name: Archive IHM
       uses: actions/upload-artifact@v2
       with:
-        name: IHM-Hangman-Game
+        name: Simulation-IHM
         path: ${{github.workspace}}/client/build
-
-    # Analyse
-    # - name: ESlint analyze json
-    #   working-directory: ${{github.workspace}}/client
-    #   run: npm run lint:eslint:json || echo FAILED
-
-    # - name: ESlint analyze html
-    #   working-directory: ${{github.workspace}}/client
-    #   run: npm run lint:eslint || echo FAILED
-
-    # - name: Stylelint analyze
-    #   working-directory: ${{github.workspace}}/client
-    #   run: npm run lint:stylelint
-          
-    # - name: Archive Analyses reports
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: IHM-Hangman-Game-Analyses-report
-    #     path: ${{github.workspace}}/client/dist
 
     # Sonar
     - name: Setup sonarqube

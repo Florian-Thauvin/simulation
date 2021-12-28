@@ -3,8 +3,6 @@ const fs = require("fs");
 
 const DefaultAppender = {
   type: "FILE",
-  // type : 'TCP'
-  // type : 'HTTP'
   themes: ["DEFAULT"],
 };
 

@@ -59,7 +59,7 @@ jobs:
     - name: Es lint
       uses: permafrost-dev/eslint-docker-ga@main
       with:
-          args: . --fix --format json --output-file .client/dist/reports/lint/eslint-report.json --ignore-path ./.gitignore --config client/.eslintrc.js
+          args: . --fix --format json --output-file ./client/dist/reports/lint/eslint-report.json --ignore-path ./.gitignore --config ./client/.eslintrc.js
 
     - name: Style lint
       run: npm run lint:stylelint

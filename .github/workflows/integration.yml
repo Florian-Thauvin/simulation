@@ -59,10 +59,10 @@ jobs:
         json: true
 
     - name: Es lint
-      uses: permafrost-dev/eslint-docker-ga@main
+      uses: bradennapier/eslint-plus-action@v3.4.2
       with:
-          args: . --fix --format json --output-file ./client/dist/reports/lint/eslint-report.json --ignore-path ./.gitignore --config ./client/.eslintrc.js
-
+        configFile: ${{github.workspace}}/client/.eslintrs.js
+            
     - name: Style lint
       run: npm run lint:stylelint
       working-directory: ${{github.workspace}}/client

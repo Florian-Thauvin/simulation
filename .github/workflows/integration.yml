@@ -39,11 +39,7 @@ jobs:
       run: mkdir dist && mkdir dist/reports
       working-directory: ${{github.workspace}}/client
 
-    # Build    
-    - name: Dependency audit
-      run: npm run dependency-analyse
-      working-directory: ${{github.workspace}}/client
-    
+    # Build       
     - name: Install dependency
       run: npm ci
       working-directory: ${{github.workspace}}/client
@@ -52,6 +48,10 @@ jobs:
       run: npm run prettier
       working-directory: ${{github.workspace}}/client
     
+    - name: Dependency audit
+      run: npm run dependency-analyse
+      working-directory: ${{github.workspace}}/client
+
     - name: Es lint
       run: npm run lint:eslint && npm run lint:stylelint
       working-directory: ${{github.workspace}}/client

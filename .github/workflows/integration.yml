@@ -65,6 +65,7 @@ jobs:
       with:
         eslintConfig: "client/eslint.config.js"
         ghToken: ${{ secrets.GITHUB_TOKEN }}
+        eslintFiles: "client/src"
         eslintExt: "js, ts, tsx"
         
     - name: Style lint

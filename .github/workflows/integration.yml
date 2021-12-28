@@ -21,7 +21,7 @@ jobs:
       matrix:
         language: [ 'javascript' ]
         node-version: [16.x]
-        os: [ubuntu-latest]
+        os: [windows-latest]
     permissions:
       actions: read
       contents: read
@@ -58,10 +58,9 @@ jobs:
         fix: false
         json: true
 
-    - name: Es lint
-      uses: bradennapier/eslint-plus-action@v3.4.2
-      with:
-        configFile: ${{github.workspace}}/client/.eslintrs.js
+    - name: Es lint            
+      run: npm run lint:eslint
+      working-directory: ${{github.workspace}}/client
             
     - name: Style lint
       run: npm run lint:stylelint

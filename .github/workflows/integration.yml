@@ -59,9 +59,14 @@ jobs:
         json: true
 
     - name: Es lint            
-      run: npm run lint:eslint
-      working-directory: ${{github.workspace}}/client
-            
+      #run: npm run lint:eslint
+      #working-directory: ${{github.workspace}}/client
+      uses: Krizzu/eslint-check-action@v1.1.0
+      with:
+        eslintConfig: "client/eslint.config.js"
+        ghToken: ${{ secrets.GITHUB_TOKEN }}
+        eslintExt: "js, ts, tsx"
+        
     - name: Style lint
       run: npm run lint:stylelint
       working-directory: ${{github.workspace}}/client

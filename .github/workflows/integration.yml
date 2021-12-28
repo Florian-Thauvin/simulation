@@ -49,9 +49,12 @@ jobs:
       working-directory: ${{github.workspace}}/client
     
     - name: Dependency audit
-      uses: oke-py/npm-audit-action@v1.8.2 > ./dist/reports/dependency-audit.txt
+      continue-on-error: true
+      uses: luisfontes19/npm-audit-action@v0.1.0
       with:
-        working_directory: ${{github.workspace}}/client
+        project-path: ${{github.workspace}}/client
+        fix: false
+        json: true
 
     - name: Es lint
       run: npm run lint:eslint && npm run lint:stylelint

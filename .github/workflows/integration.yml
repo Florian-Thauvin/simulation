@@ -61,12 +61,11 @@ jobs:
     - name: Es lint            
       #run: npm run lint:eslint
       #working-directory: ${{github.workspace}}/client
-      uses: Krizzu/eslint-check-action@v1.1.0
+      uses: mrdivyansh/eslint-action@v1.0.7
       with:
-        eslintConfig: "client/eslint.config.js"
-        ghToken: ${{ secrets.GITHUB_TOKEN }}
-        eslintFiles: "client/src"
-        eslintExt: "js, ts, tsx"
+        eslint-rc: ./client/eslint.config.js
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        execute-on-files: ./client/src
         
     - name: Style lint
       run: npm run lint:stylelint

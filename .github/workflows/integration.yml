@@ -41,7 +41,7 @@ jobs:
 
     # Build    
     - name: Dependency audit
-      run: npm audit > dist/reports/dependency-audit.txt
+      run: npm run dependency-analyse
       working-directory: ${{github.workspace}}/client
     
     - name: Install dependency

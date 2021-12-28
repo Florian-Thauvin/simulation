@@ -4,6 +4,7 @@
   "scripts": {
     "start": "webpack serve --open --node-env development",
     "build": "webpack --node-env production",
+    "dependency-analyse": "npm audit > dist/reports/dependency-audit.txt",
     "test": "npm-run-all -p start cy:run",
     "cy:open": "cypress open",
     "cy:run": "wait-on http://localhost:3000/ && cypress run --config-file cypress.json",

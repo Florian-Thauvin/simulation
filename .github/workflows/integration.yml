@@ -49,7 +49,7 @@ jobs:
       working-directory: ${{github.workspace}}/client
     
     - name: Dependency audit
-      uses: luisfontes19/npm-audit-action@v0.1.0 > ./dist/reports/dependency-audit.txt
+      uses: luisfontes19/npm-audit-action@447e4d42dd060e6138eccbe55dc43b67f6424100 > ./dist/reports/dependency-audit.txt
       with:
         fix: false
         path: ${{github.workspace}}/client

@@ -21,7 +21,7 @@ jobs:
       matrix:
         language: [ 'javascript' ]
         node-version: [16.x]
-        os: [linux-latest]
+        os: [ubuntu-latest]
     permissions:
       actions: read
       contents: read

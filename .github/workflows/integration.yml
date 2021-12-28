@@ -57,7 +57,7 @@ jobs:
         json: true
 
     - name: Es lint
-      run: npm run lint:eslint && npm run lint:stylelint
+      run: npm run lint:eslint
       working-directory: ${{github.workspace}}/client
 
     - name: Style lint
